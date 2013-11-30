@@ -9,7 +9,7 @@ Installation aka Getting Started
 These instructions are emulator development specific as that's the only device I have :)
 Instructions should work for the hardware device too though
 
-### Running something
+### Running app
 1. git clone or download sources. Import to Qt Creator. If you developed for emulator, you need to agree to configure project for MerSDK-SailfishOS-i486-x86 kit.
 
 2. Open Projects tab, select i486 target, then Run tab. Choose Deploy as RPM Package for the deployment methos
@@ -33,12 +33,11 @@ Just run `/usr/share/tst-harbour-helloworld-pro-sailfish/runTestsOnDevice.sh`
 Voila, Run button inside QtCreator will run tests for you now. For more info on testing QML, you may like to start at http://www.slideshare.net/AgileArtem/test-drivingqml-12941898
 
 
-Contents/Guide
-------------
-
 Random notes about the project structure:
+=========
 
 1. Project structure
+
 * We follow traditional Qt project structure with main project having two subprojects: src and tests
 * .yaml file (and .spec generated from .yaml) defines two subpackages:
    * harbour-helloworld-pro-sailfish - contains just the app files. It is something you will submit to app store
@@ -46,16 +45,18 @@ Random notes about the project structure:
 * .gitignore in the current project is supposed to be useful too, we try to check in only what's really needed without any local environment details
 
 2. Code structure
+
 * Note how tst_....qml files import the main project files. When running in device you want to import from final QML location that in this case is `../harbour-helloworld-pro-sailfish/qml/pages` relative from the test project deployment folder. When editing test file on desktop QtCreator sure has no idea where the main files are located, so during desktop editing I uncomment `import ../src/qml/pages` line to make QtCreator code completion work.
 
 3. Further links
+
 * There are more comments in the tests code and .pro and .yaml files too
 * QtQuickTest reference - https://qt-project.org/doc/qt-5.1/qtdoc/qtquick-qtquicktest.html
 * Few still relevant hints about test-driving QML projects can be found in Artem's old presentation at http://www.slideshare.net/AgileArtem/test-driving-qml
 
 
 ToDo
-------------
+=========
 That is supposed to be a public easy to use getting started real good app template in the public domain. The vision is that we want to be so good, it would make sense to make this project a default Sailfish app template (maybe not the simlest app template, but "good real app template").
 
 All the pull requests are very welcome. I can see the following ToDo things for now (in the order of priority I think):
