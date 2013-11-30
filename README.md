@@ -3,6 +3,12 @@ Sailfish app with QML test
 
 A minimal project for demonstrating the project structure with a simple app and a couple of QML tests that verify stuff in both UI level and under UI level. In the bright future it might be the ideal super-polished good app template with all the minimal stuff you need in real app, but nothing else.
 
+Quick-start your own app
+------------
+If you know all the basics and just want a quick start for your app
+Run `./rename-to-my-project.sh`
+That certainly won't work for Windows without cygwin or similar. If you create a similar batch file for windows or create a platform-independ script (e.g. in Python), please, submit one via pull request
+
 Installation aka Getting Started
 ------------
 
