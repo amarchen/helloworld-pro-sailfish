@@ -1,7 +1,7 @@
 TEMPLATE = app
 
 # The name of your app
-TARGET = tst-sailfish-app-with-qml-test
+TARGET = tst-harbour-helloworld-pro-sailfish
 
 CONFIG += qmltestcase
 
@@ -10,6 +10,9 @@ target.path = $$TARGETPATH
 
 DEPLOYMENT_PATH = /usr/share/$$TARGET
 qml.path = $$DEPLOYMENT_PATH
+
+extra.path = $$DEPLOYMENT_PATH
+extra.files = runTestsOnDevice.sh
 
 # defining QUICK_TEST_SOURCE_DIR here doesn't work QtCreator keeps injecting another definition to command line (from CONFIG += qmltestcase ?)
 #DEFINES += QUICK_TEST_SOURCE_DIR=\"\\\"\"$${DEPLOYMENT_PATH}/\"\\\"\"
@@ -21,7 +24,7 @@ SOURCES += main.cpp
 # C++ headers
 HEADERS +=
 
-INSTALLS += target qml
+INSTALLS += target qml extra
 
 # QML files and folders
 qml.files = *.qml
