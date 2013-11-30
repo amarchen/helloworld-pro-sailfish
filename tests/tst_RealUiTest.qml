@@ -5,8 +5,8 @@ import QtQuick 2.0
 import QtTest 1.0
 import Sailfish.Silica 1.0
 
-//import "../src/pages"
-import "../sailfish-app-with-qml-test/pages"
+//import "../src/qml/pages"
+import "../harbour-helloworld-pro-sailfish/qml/pages"
 
 
 // Putting TestCase into the full app structure to test UI interactions and probably page transitions too

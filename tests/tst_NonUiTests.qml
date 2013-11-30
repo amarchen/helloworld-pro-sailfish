@@ -9,14 +9,14 @@
 import QtQuick 2.0
 import QtTest 1.0
 
-// At runtime proper folder to import is "../sailfish-app-with-qml-test/pages"
-// You can check the main app deployment folder from it's DEPLOYMENT_FOLDER qmake var in .pro (actially definied in sailfishapplication.pri)
+// At runtime proper folder to import is "../harbour-helloworld-pro-sailfish/qml/pages"
+// You can check the main app deployment folder from it's DEPLOYMENT_PATH qmake var in .pro
 // Faster to check from .spec file, however
 
-// At design-time I uncomment import "../src/pages" so that QtCreator auto-completion would work
+// At design-time I uncomment import "../src/qml/pages" so that QtCreator auto-completion would work
 
-//import "../src/pages"
-import "../sailfish-app-with-qml-test/pages"
+//import "../src/qml/pages"
+import "../harbour-helloworld-pro-sailfish/qml/pages"
 
 TestCase {
     name: "SailCalcTest"
