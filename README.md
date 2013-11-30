@@ -32,8 +32,16 @@ Just run `/usr/share/tst-harbour-helloworld-pro-sailfish/runTestsOnDevice.sh`
 
 Voila, Run button inside QtCreator will run tests for you now. For more info on testing QML, you may like to start at http://www.slideshare.net/AgileArtem/test-drivingqml-12941898
 
+Building for a real device and Jolla Harbour submissiong
+------------
+1. Switch to MerSDK-SailfishOS-armv7-hl kit.
+2. Check if QtCreator overwritten .yaml file. Sometimes it corrupts it on target switch. Restore .yaml from version control if it happened
+3. Clean project. Otherwise Creator will happily package the old i486 binaries
+4. Build project
+5. Deploy project (in the Creator's Build menu)
+6. Final binaries will be located in RPMS folder and will look like `harbour-helloworld-pro-sailfish-0.1-1.armv7hl.rpm` Submit this RPM to harbour
 
-Random notes about the project structure:
+Random notes about the project:
 =========
 
 1. Project structure
