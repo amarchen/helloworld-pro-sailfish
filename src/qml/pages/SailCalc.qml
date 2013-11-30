@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import Sailfish.Silica.theme 1.0
+import Sailfish.Silica 1.0
 
 
 // Just a simple example to demo both property binding and doing something via pulley menu action
@@ -46,22 +46,61 @@ Page {
             PageHeader {
                 title: "Calculator"
             }
-            Label { 
-                text: "AAA"
-            }
-            TextField {
-                id: a
-                text: "8"
-                validator: IntValidator {}
-            }
             Label {
-                text: "B"
+                width: parent.width
+                anchors.leftMargin: Theme.paddingLarge
+                anchors.rightMargin: Theme.paddingLarge
+
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+
+                text: "Demo calculator. <a href='https://github.com/amarchen/helloworld-pro-sailfish'>Visit GitHub</a> for details"
+
+                onLinkActivated: {
+                    Qt.openUrlExternally(link)
+                }
             }
 
-            TextField {
-                id: b
-                text: "3"
-                validator: IntValidator {}
+            BackgroundItem {
+                width: parent.width
+                height: contentItem.childrenRect.height
+                Component.onCompleted: {
+                    console.log("row compl. wxh: " + width + "x" + height)
+                }
+
+                Row {
+                    anchors.left: parent.left
+                    anchors.right: parent.horizontalCenter
+                    height: aLabel.height
+
+                    Label {
+                        id: aLabel
+                        text: "A:"
+                    }
+
+                    TextField {
+                        id: a
+                        height: aLabel.height
+                        text: "8"
+                        validator: IntValidator {}
+                    }
+                }
+                Row {
+                    anchors.left: parent.horizontalCenter
+                    anchors.right: parent.right
+                    height: aLabel.height
+
+                    Label {
+                        text: "B:"
+                    }
+
+                    TextField {
+                        id: b
+                        height: aLabel.height
+                        text: "3"
+                        validator: IntValidator {}
+                    }
+                }
             }
             Label {
                 id: sumLabel
