@@ -69,6 +69,7 @@ ToDo
 That is supposed to be a public easy to use getting started real good app template in the public domain. The vision is that we want to be so good, it would make sense to make this project a default Sailfish app template (maybe not the simlest app template, but "good real app template").
 
 All the pull requests are very welcome. I can see the following ToDo things for now (in the order of priority I think):
+* Create renaming wizard for Windows. Or do a cross-platform Python script or something like this
 * Better app icon. Current one is donated from https://github.com/amarchen/Wikipedia
 * Improve docs
 * Add (or at least consider) adding C++ side too: a custom C++ side object importable to QML with C++ side qtest for it
