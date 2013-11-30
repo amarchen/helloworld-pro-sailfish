@@ -1,8 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=sailfish-app-with-qml-test
-Icon=icon-launcher-gallery
-Exec=invoker --type=silica-qt5 -s /usr/bin/sailfish-app-with-qml-test
-Comment=Sailfish UI application
-
-
+X-Nemo-Application-Type=silica-qt5
+Name=harbour-helloworld-pro-sailfish
+Icon=harbour-helloworld-pro-sailfish
+Exec=harbour-helloworld-pro-sailfish
