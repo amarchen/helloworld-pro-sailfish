@@ -68,6 +68,8 @@ All the pull requests are very welcome. I can see the following ToDo things for 
 * Add (or at least consider) adding C++ side too: a custom C++ side object importable to QML with C++ side qtest for it
 * Add some QML part that is runnable on desktop, create test for it and show how to test it on desktop. That is to illustrate how you could develop part of the app on desktop only (for faster development cycle)
 * Create a script for converting this project into whatever name you like - will help new developers with getting staed
+* Make an app Cover page with a couple of actions
+    * And demonstrate a good way to share data between pages and cover (store it in main.qml possibly)
 
 Saying thank you
 -------------
