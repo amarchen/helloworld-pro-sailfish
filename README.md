@@ -37,22 +37,17 @@ Random notes about the project structure:
 =========
 
 1. Project structure
-
-* We follow traditional Qt project structure with main project having two subprojects: src and tests
-* .yaml file (and .spec generated from .yaml) defines two subpackages:
-   * harbour-helloworld-pro-sailfish - contains just the app files. It is something you will submit to app store
-   * harbour-helloworld-pro-sailfish-tests - contains just the test binary and test files. For development only
-* .gitignore in the current project is supposed to be useful too, we try to check in only what's really needed without any local environment details
-
+    * We follow traditional Qt project structure with main project having two subprojects: src and tests
+    * .yaml file (and .spec generated from .yaml) defines two subpackages:
+        * harbour-helloworld-pro-sailfish - contains just the app files. It is something you will submit to app store
+        * harbour-helloworld-pro-sailfish-tests - contains just the test binary and test files. For development only
+    * .gitignore in the current project is supposed to be useful too, we try to check in only what's really needed without any local environment details
 2. Code structure
-
-* Note how tst_....qml files import the main project files. When running in device you want to import from final QML location that in this case is `../harbour-helloworld-pro-sailfish/qml/pages` relative from the test project deployment folder. When editing test file on desktop QtCreator sure has no idea where the main files are located, so during desktop editing I uncomment `import ../src/qml/pages` line to make QtCreator code completion work.
-
+    * Note how tst_....qml files import the main project files. When running in device you want to import from final QML location that in this case is `../harbour-helloworld-pro-sailfish/qml/pages` relative from the test project deployment folder. When editing test file on desktop QtCreator sure has no idea where the main files are located, so during desktop editing I uncomment `import ../src/qml/pages` line to make QtCreator code completion work.
 3. Further links
-
-* There are more comments in the tests code and .pro and .yaml files too
-* QtQuickTest reference - https://qt-project.org/doc/qt-5.1/qtdoc/qtquick-qtquicktest.html
-* Few still relevant hints about test-driving QML projects can be found in Artem's old presentation at http://www.slideshare.net/AgileArtem/test-driving-qml
+    * There are more comments in the tests code and .pro and .yaml files too
+    * QtQuickTest reference - https://qt-project.org/doc/qt-5.1/qtdoc/qtquick-qtquicktest.html
+    * Few still relevant hints about test-driving QML projects can be found in Artem's old presentation at http://www.slideshare.net/AgileArtem/test-driving-qml
 
 
 ToDo
