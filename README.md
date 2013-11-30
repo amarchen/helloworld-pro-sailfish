@@ -6,7 +6,7 @@ A minimal project for demonstrating the project structure with a simple app and 
 Quick-start your own app
 ------------
 If you know all the basics and just want a quick start for your app
-Run `./rename-to-my-project.sh`
+Run `./rename-to-my-project.sh harbour-mycoolapp`
 That certainly won't work for Windows without cygwin or similar. If you create a similar batch file for windows or create a platform-independ script (e.g. in Python), please, submit one via pull request
 
 Installation aka Getting Started
