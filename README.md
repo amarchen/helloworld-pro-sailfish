@@ -13,7 +13,6 @@ Instructions should work for the hardware device too though
 1. git clone or download sources. Import to Qt Creator. If you developed for emulator, you need to agree to configure project for MerSDK-SailfishOS-i486-x86 kit.
 
 2. Open Projects tab, select i486 target, then Run tab. Choose Deploy as RPM Package for the deployment methos
-You'll need to deploy it this way at least once so that dependencies (e.g. QtQuickTest get installed)
 
 3. Run i486 src subproject in emulator from QtCreator Run button in the left side bar (just make sure i486->src is selected)
 This will run build and deploy everything and you should see the silly priomitive calculator app running
@@ -21,26 +20,17 @@ This will run build and deploy everything and you should see the silly priomitiv
 ### Running tests
 * In the emulator console
 
-_If you just installed Alpha-Qt5 SDK and RPM deployment fails somewhere on the way, ssh to emulator as described below and run `zypper refresh` there. I it a known issue with package databases being somehow wrong in the initial emulator_
-
-Simplest way is to start console on emulator as is described at https://sailfishos.org/develop-faq.html
-At Alpha-Qt5 SDK time that used to be `ssh -p 2223 nemo@localhost` with password nemo
-
-Then run `/usr/bin/tst-sailfish-app-with-qml-test -input /usr/share/tst-sailfish-app-with-qml-test/`
-7 tests should pass
+Just run `/usr/share/tst-harbour-helloworld-pro-sailfish/runTestsOnDevice.sh`
 
 * Inside Qt Creator
-You can run tests from Qt Creator tests project configuration, but at the moment QtC fails to parse project files properly.
 
-*Sometimes* Qt Creator lets you specify "Alternate executable on device " fir the tests run configutation, but I fail to understand when it is possible. Most of the time it seems to be impossible.
+1. In the project configuration, for src project (not for tests one!) click "Use this command instead"
 
-During daily development you can run the tests inside QtCreator the following way:
+2. set "Alternate executable on device:" to `/usr/share/tst-harbour-helloworld-pro-sailfish/runTestsOnDevice.sh`
 
-1. Change the deployment method to "Deploy by copying binaries". It will not install dependencies for you, but if you deployed via RPM at least once, dependencies should already be inside the device
+3. Run the project, see test results in the console
 
-2. Specify "Alternative executable on the device" as `/usr/bin/tst-sailfish-app-with-qml-test`, check "Use this command instead" and set Arguments as `-input /usr/share/tst-sailfish-app-with-qml-test/`
-
-Voila, Run button inside QtCreator should run tests for you now
+Voila, Run button inside QtCreator will run tests for you now. For more info on testing QML, you may like to start at http://www.slideshare.net/AgileArtem/test-drivingqml-12941898
 
 
 Contents/Guide
@@ -50,17 +40,16 @@ Random notes about the project structure:
 
 1. Project structure
 * We follow traditional Qt project structure with main project having two subprojects: src and tests
-* .spec file defines two subpackages:
-   * sailfish-app-with-qml-test - contains just the app files. It is something you will submit to app store
-   * sailfish-app-with-qml-test-tests - contains just the test binary and test files. For development only
-* There is no .yaml file. In the current SDK it seems to be impossible to use .yaml with the multiple packages. I failed to figure out a way to make it work. You should be fine with just .spec though
+* .yaml file (and .spec generated from .yaml) defines two subpackages:
+   * harbour-helloworld-pro-sailfish - contains just the app files. It is something you will submit to app store
+   * harbour-helloworld-pro-sailfish-tests - contains just the test binary and test files. For development only
 * .gitignore in the current project is supposed to be useful too, we try to check in only what's really needed without any local environment details
 
 2. Code structure
-* Note how tst_....qml files import the main project files. When running in device you want to import from final QML location that in this case is `../sailfish-app-with-qml-test/pages` relative from the test project deployment folder. When editing test file on desktop QtCreator sure has no idea where the main files are located, so during desktop editing I uncomment `import ../src/pages` line to make QtCreator code completion work.
+* Note how tst_....qml files import the main project files. When running in device you want to import from final QML location that in this case is `../harbour-helloworld-pro-sailfish/qml/pages` relative from the test project deployment folder. When editing test file on desktop QtCreator sure has no idea where the main files are located, so during desktop editing I uncomment `import ../src/qml/pages` line to make QtCreator code completion work.
 
 3. Further links
-* There are more comments in the tests code and .pro and .spec files too
+* There are more comments in the tests code and .pro and .yaml files too
 * QtQuickTest reference - https://qt-project.org/doc/qt-5.1/qtdoc/qtquick-qtquicktest.html
 * Few still relevant hints about test-driving QML projects can be found in Artem's old presentation at http://www.slideshare.net/AgileArtem/test-driving-qml
 
@@ -70,15 +59,17 @@ ToDo
 That is supposed to be a public easy to use getting started real good app template in the public domain. The vision is that we want to be so good, it would make sense to make this project a default Sailfish app template (maybe not the simlest app template, but "good real app template").
 
 All the pull requests are very welcome. I can see the following ToDo things for now (in the order of priority I think):
-* Add app icon a'la https://github.com/amarchen/Wikipedia is doing
-* Figure out how to make tests configuration work with RPM deployment
-* Try shadow build config to get rid of object files and final binaries and final packages generated inside the project right now
+* Better app icon. Current one is donated from https://github.com/amarchen/Wikipedia
 * Improve docs
-* Invent a better project name (and rename all the stuff). It is a bit confusing when app name includes "test" in its name and has "tests" subproject inside
-* Why is sailfish-app-with-qml-test binary generated in two places (main folder and src folder)?
 * Add (or at least consider) adding C++ side too: a custom C++ side object importable to QML with C++ side qtest for it
 * Add some QML part that is runnable on desktop, create test for it and show how to test it on desktop. That is to illustrate how you could develop part of the app on desktop only (for faster development cycle)
+* Create a script for converting this project into whatever name you like - will help new developers with getting staed
 
+Saying thank you
+-------------
+* The best way to say thank you is to improve it with pull request.
+* You can also consider installing it from harbour (not published as of Nov 30 2013 yet, but should be published soon) and rating it high in the app store - will help to contribute
+* Following the original author on Twitter - http://twitter.com/AgileArtem will warm up his heart too :)
 
 Support and license
 -------------------
