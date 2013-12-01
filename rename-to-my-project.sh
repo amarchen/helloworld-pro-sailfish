@@ -23,10 +23,10 @@ fi
 
 echo Replacing "harbour-helloworld-pro-sailfish" with "$newname"
 # iterating over all files except for the binary ones
-for fl in `find . -type f -print | xargs file | grep ASCII | cut -d: -f1`
+for fl in `find . -name .git -prune -o -type f -print | xargs file | grep ASCII | cut -d: -f1`
 do
     # Ignore this particular file and everything inside .git dir
-    if [[ "$fl" =~ "rename-to-my-project.sh" || "$fl" =~ ".git/" ]]
+    if [[ "$fl" =~ "rename-to-my-project.sh" ]]
     then
         continue
     fi
