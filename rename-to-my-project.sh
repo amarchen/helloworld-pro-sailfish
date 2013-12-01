@@ -33,7 +33,7 @@ do
     echo Checking $fl
     futurefl=${fl//harbour-helloworld-pro-sailfish/$newname}
     mv $fl $fl.old
-    sed 's/harbour-helloworld-pro-sailfish/harbour-myapp/g' $fl.old > $futurefl
+    sed "s/harbour-helloworld-pro-sailfish/$newname/g" $fl.old > $futurefl
     rm -f $fl.old
 done
 echo Done. Enjoy your $newname app!
