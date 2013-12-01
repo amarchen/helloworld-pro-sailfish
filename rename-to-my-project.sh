@@ -14,13 +14,14 @@ then
   exit
 fi
 
-if [[ $1 != harbour-* ]]
+newname=$1
+if [[ $newname != harbour-* ]]
 then
   echo Your new app name MUST start with \"harbour-\"
   exit
 fi
 
-echo Replacing "harbour-helloworld-pro-sailfish" with "$1"
+echo Replacing "harbour-helloworld-pro-sailfish" with "$newname"
 # iterating over all files except for the binary ones
 for fl in `find . -type f -print | xargs file | grep ASCII | cut -d: -f1`
 do
@@ -30,9 +31,9 @@ do
         continue
     fi
     echo Checking $fl
-    futurefl=${fl//harbour-helloworld-pro-sailfish/$1}
+    futurefl=${fl//harbour-helloworld-pro-sailfish/$newname}
     mv $fl $fl.old
     sed 's/harbour-helloworld-pro-sailfish/harbour-myapp/g' $fl.old > $futurefl
     rm -f $fl.old
 done
-echo Done. Enjoy your $1 app!
+echo Done. Enjoy your $newname app!
