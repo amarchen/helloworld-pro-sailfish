@@ -16,3 +16,4 @@ debuglinks.list
 *.o
 Makefile
 *.pro.user
+*.pro.user.*

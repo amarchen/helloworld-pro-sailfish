@@ -70,6 +70,7 @@ That is supposed to be a public easy to use getting started real good app templa
 
 All the pull requests are very welcome. I can see the following ToDo things for now (in the order of priority I think):
 * Create renaming wizard for Windows. Or do a cross-platform Python script or something like this
+* improve rename-to-my-project.sh. A bit too much duplication there
 * Improve docs. Always a noble goal
 * Make an app Cover page with one-two actions
     * And demonstrate a good way to share data between pages and cover (store it in main.qml possibly)

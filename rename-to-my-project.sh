@@ -44,4 +44,20 @@ do
     echo Updated $fl
 done
 
+#Then specifically rename stuff inside *.sh files (shell file is executable, so isn't handled) by the previous step
+for fl in `find . -type f -name \*.sh -print`
+do
+    # Ignore this particular file and everything inside .git dir
+    if [[ "$fl" =~ "rename-to-my-project.sh" || "$fl" =~ ".git/" ]]
+    then
+         continue
+    fi
+
+    mv $fl $fl.old
+
+    sed "s/harbour-helloworld-pro-sailfish/$newname/g" $fl.old > $fl
+    rm -f $fl.old
+    echo Updated $fl
+done
+
 echo Done. Enjoy your $newname app!
