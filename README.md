@@ -62,7 +62,8 @@ Random notes about the project:
     * There are more comments in the tests code and .pro and .yaml files too
     * QtQuickTest reference - https://qt-project.org/doc/qt-5.1/qtdoc/qtquick-qtquicktest.html
     * Few still relevant hints about test-driving QML projects can be found in Artem's old presentation at http://www.slideshare.net/AgileArtem/test-driving-qml
-
+4. Icon templates
+    * The icon-templates folder contains svg app icons which match the Sailfish look. Pick up the one you like, change colors, flip and rotate, add graphics and export as a 86x86 bitmap png image. The folder is not actually used by the project and you can delete it if you don't need it. The svg icons have been created with Inkscape.
 
 ToDo
 =========
