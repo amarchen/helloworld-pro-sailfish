@@ -5,47 +5,80 @@ A minimal project for demonstrating the project structure with a simple app and 
 
 Quick-start your own app
 ------------
-If you know all the basics and just want a quick start for your app
-Run `./rename-to-my-project.sh harbour-mycoolapp`
-That certainly won't work for Windows without cygwin or similar. If you create a similar batch file for windows or create a platform-independ script (e.g. in Python), please, submit one via pull request
 
-Installation aka Getting Started
+1. git clone or download sources.
+
+2. To rename the application, run `./rename-to-my-project.sh harbour-mycoolapp`
+
+ The rename script certainly won't work for Windows without cygwin or similar. If you create a similar batch file for windows or create a platform-independ script (e.g. in Python), please, submit one via pull request
+
+3. Ensure that you have the SailfishOS SDK installed. Choose either the SailfishOS IDE version (more clicking) or the command line version (more typing) of the following build and installation sections.
+
+Build and installation (SailfishOS IDE version)
 ------------
-
-These instructions are emulator development specific as that's the only device I have :)
-Instructions should work for the hardware device too though
 
 ### Running app
-1. git clone or download sources. Import to Qt Creator. If you developed for emulator, you need to agree to configure project for MerSDK-SailfishOS-i486-x86 kit.
+1. Import to SailfishOS IDE (aka Qt Creator): File -> Open File or Project... -> helloworld-pro-sailfish/harbour-helloworld-pro-sailfish.pro
 
-2. Open Projects tab, select i486 target, then Run tab. Choose Deploy as RPM Package for the deployment methos
+2. Choose platform kits: Uncheck Desktop, tick MerSDK-SailfishOS-i486-x86 (for the emulator) and/or arm (for the real phone) options.
 
-3. Run i486 src subproject in emulator from QtCreator Run button in the left side bar (just make sure i486->src is selected)
-This will run build and deploy everything and you should see the silly priomitive calculator app running
+3. Configure build type (toolbar icon "harbour-helloworld-pro-sailfish Debug"): "i486-x86" & "Debug" & "Deploy as RPM package" & "src (on Mer device)"
+
+4. Start Sdk and Emulator (bottom-left toolbar buttons)
+
+5. Build, install and run the project (play button in the toolbar)
+
+6. You should see the silly primitive calculator app installed and running in the emulator.
 
 ### Running tests
-* In the emulator console
+* Option 1: In the emulator console, just run `/usr/share/tst-harbour-helloworld-pro-sailfish/runTestsOnDevice.sh`
 
-Just run `/usr/share/tst-harbour-helloworld-pro-sailfish/runTestsOnDevice.sh`
+* Option 2: Inside SailfishOS IDE
 
-* Inside Qt Creator
+ 1. Toolbar -> Projects -> i486 -> Run -> Run Settings -> Run -> Run configuration -> "src (on Mer Device)" -> "Use this command instead"
 
-1. In the project configuration, for src project (not for tests one!) click "Use this command instead"
+ 2. Set "Alternate executable on device:" to `/usr/share/tst-harbour-helloworld-pro-sailfish/runTestsOnDevice.sh`
 
-2. set "Alternate executable on device:" to `/usr/share/tst-harbour-helloworld-pro-sailfish/runTestsOnDevice.sh`
+ 3. Run the project again, see test results in the console
 
-3. Run the project, see test results in the console
+For more info on testing QML, you may like to start at http://www.slideshare.net/AgileArtem/test-drivingqml-12941898
 
-Voila, Run button inside QtCreator will run tests for you now. For more info on testing QML, you may like to start at http://www.slideshare.net/AgileArtem/test-drivingqml-12941898
-
-Building for a real device and Jolla Harbour submissiong
-------------
-1. Switch to MerSDK-SailfishOS-armv7-hl kit.
-2. Check if QtCreator overwritten .yaml file. Sometimes it corrupts it on target switch. Restore .yaml from version control if it happened
+### Building for a real device and Jolla Harbour submissiong
+1. Switch kit in project build configuration to MerSDK-SailfishOS-armv7-hl.
+2. Check whether QtCreator overwrote the .yaml file. Sometimes it corrupts it on target switch. Restore .yaml from version control if this happens.
 3. Clean project. Otherwise Creator will happily package the old i486 binaries
 4. Build project
 5. Deploy project (in the Creator's Build menu)
 6. Final binaries will be located in RPMS folder and will look like `harbour-helloworld-pro-sailfish-0.1-1.armv7hl.rpm` Submit this RPM to harbour
+
+Build and installation (command line version)
+-----------------------
+
+The following assumes that you have installed the SailfishOS SDK into your home directory under the name SailfishOS, and that you want to build an RPM package that you can install on the Jolla phone.
+
+1. Connect to the virtual machine of the Sailfish SDK build engine:
+
+ ssh -p 2222 -i ~/SailfishOS/vmshare/ssh/private_keys/engine/mersdk mersdk@localhost
+
+2. Change to the same directory where you have your git clone:
+
+ cd git/helloworld-pro-sailfish
+
+3. Prepare the build:
+
+ mb2 -t SailfishOS-armv7hl qmake
+
+4. Execute the build (producing packages in the RPMS directory):
+
+ mb2 -t SailfishOS-armv7hl rpm
+
+5. Exit the virtual machine and then copy the package to the phone:
+
+ scp -i ~/SailfishOS/vmshare/ssh/private_keys/SailfishOS_Device/nemo RPMS/harbour-helloworld-pro-sailfish-0.4-4.armv7hl.rpm nemo@ip.address.of.phone:RPMS/
+
+6. Connect to the phone and install the package:
+
+ ssh -i ~/SailfishOS/vmshare/ssh/private_keys/SailfishOS_Device/nemo nemo@ip.address.of.phone pkcon install-local RPMS/harbour-helloworld-pro-sailfish-0.4-4.armv7hl.rpm
 
 Random notes about the project:
 =========
