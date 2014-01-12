@@ -15,7 +15,7 @@ Page {
     property alias _bText: b.text
     property alias _sumText: sumLabel.text
     property alias _substrText: substrLabel.text
-    property alias _substractMenuAction: substractMenuAction
+    property alias _subtractMenuAction: subtractMenuAction
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
@@ -25,10 +25,10 @@ Page {
         PullDownMenu {
             id: pullDownMenu
             MenuItem {
-                id: substractMenuAction
-                text: "Substract!"
+                id: subtractMenuAction
+                text: "Subtract!"
                 onClicked: {
-                    console.log("substractMenuAction clicked")
+                    console.log("subtractMenuAction clicked")
                     substrLabel.text = "A-B = " + (parseInt(a.text) - parseInt(b.text))
                 }
 

@@ -31,16 +31,16 @@ TestCase {
         compare(bigCalc._sumText, "A+B = 15", "7 + 8 should make 15")
     }
 
-    function test_substractionAfterMenuAction() {
+    function test_subtractionAfterMenuAction() {
         bigCalc._substrText = ""
         bigCalc._aText = "19"
         bigCalc._bText = "9"
 
         // mouseClick will not work, because no window is shown. And not even created maybe
-        // mouseClick(bigCalc._substractMenuAction)
+        // mouseClick(bigCalc._subtractMenuAction)
 
         // click simulation via signals works just fine, however
-        bigCalc._substractMenuAction.clicked(null)
+        bigCalc._subtractMenuAction.clicked(null)
         compare(bigCalc._substrText, "A-B = 10", "expected 19 - 9 to equal 10")
     }
 }
