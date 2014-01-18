@@ -4,7 +4,11 @@ import "pages"
 
 ApplicationWindow
 {
-    initialPage: SailCalc { }
+    initialPage: sailCalcComponent
+    Component {
+        id: sailCalcComponent
+        SailCalc { }
+    }
 }
 
 
