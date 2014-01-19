@@ -33,7 +33,7 @@ ApplicationWindow {
             // You will still see no UI except for a short moment when test is about to exit
             // UI is actually created - that's why mouseClick works, but for some reason isn't rendered until after the test case methods
 
-            bigCalc._substractMenuAction.clicked(null)
+            bigCalc._subtractMenuAction.clicked(null)
             compare(bigCalc._substrText, "A-B = 10", "expected 19 - 9 to equal 10")
         }
     }
