@@ -1,0 +1,5 @@
+# On Windows, some Git clients may normalize all text files' line-endings to
+# CRLF, which causes obscure errors when running shell scripts. That is why
+# at least *.spec and *.sh need to have LF line-endings always.
+*.spec	eol=lf
+*.sh	eol=lf
