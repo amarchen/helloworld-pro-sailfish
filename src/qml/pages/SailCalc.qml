@@ -83,6 +83,8 @@ Page {
                         height: aLabel.height
                         text: "8"
                         validator: IntValidator {}
+                        // Show a numpad only, instead of a full keyboard
+                        inputMethodHints: Qt.ImhDigitsOnly
                     }
                 }
                 Row {
@@ -99,6 +101,8 @@ Page {
                         height: aLabel.height
                         text: "3"
                         validator: IntValidator {}
+                        // Show a numpad only, instead of a full keyboard
+                        inputMethodHints: Qt.ImhDigitsOnly
                     }
                 }
             }
