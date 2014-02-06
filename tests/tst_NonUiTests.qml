@@ -32,7 +32,7 @@ TestCase {
     }
 
     function test_subtractionAfterMenuAction() {
-        bigCalc._substrText = ""
+        bigCalc._subtrText = ""
         bigCalc._aText = "19"
         bigCalc._bText = "9"
 
@@ -41,7 +41,7 @@ TestCase {
 
         // click simulation via signals works just fine, however
         bigCalc._subtractMenuAction.clicked(null)
-        compare(bigCalc._substrText, "A-B = 10", "expected 19 - 9 to equal 10")
+        compare(bigCalc._subtrText, "A-B = 10", "expected 19 - 9 to equal 10")
     }
 }
 

@@ -26,7 +26,7 @@ ApplicationWindow {
         when: windowShown
 
         function test_menuAction() {
-            bigCalc._substrText = ""
+            bigCalc._subtrText = ""
             bigCalc._aText = "19"
             bigCalc._bText = "9"
 
@@ -34,7 +34,7 @@ ApplicationWindow {
             // UI is actually created - that's why mouseClick works, but for some reason isn't rendered until after the test case methods
 
             bigCalc._subtractMenuAction.clicked(null)
-            compare(bigCalc._substrText, "A-B = 10", "expected 19 - 9 to equal 10")
+            compare(bigCalc._subtrText, "A-B = 10", "expected 19 - 9 to equal 10")
         }
     }
 
