@@ -41,7 +41,8 @@ Page {
         // Place our content in a Column.  The PageHeader is always placed at the top
         // of the page, followed by our content.
         Column {
-            width: page.width
+            anchors.fill: parent
+            anchors.margins: Theme.paddingLarge
             spacing: Theme.paddingLarge
             PageHeader {
                 title: "Calculator"
@@ -60,50 +61,39 @@ Page {
                     Qt.openUrlExternally(link)
                 }
             }
-
-            BackgroundItem {
+            Item {
                 width: parent.width
-                height: contentItem.childrenRect.height
-                Component.onCompleted: {
-                    console.log("row compl. wxh: " + width + "x" + height)
+                height: a.height
+
+                Label {
+                    id: aLabel
+                    text: "A:"
                 }
 
-                Row {
-                    anchors.left: parent.left
+                TextField {
+                    id: a
+                    anchors.left: aLabel.right
                     anchors.right: parent.horizontalCenter
-                    height: aLabel.height
-
-                    Label {
-                        id: aLabel
-                        text: "A:"
-                    }
-
-                    TextField {
-                        id: a
-                        height: aLabel.height
-                        text: "8"
-                        validator: IntValidator {}
-                        // Show a numpad only, instead of a full keyboard
-                        inputMethodHints: Qt.ImhDigitsOnly
-                    }
+                    text: "8"
+                    validator: IntValidator {}
+                    // Show a numpad only, instead of a full keyboard
+                    inputMethodHints: Qt.ImhDigitsOnly
                 }
-                Row {
+
+                Label {
+                    id: bLabel
                     anchors.left: parent.horizontalCenter
+                    text: "B:"
+                }
+
+                TextField {
+                    id: b
+                    anchors.left: bLabel.right
                     anchors.right: parent.right
-                    height: aLabel.height
-
-                    Label {
-                        text: "B:"
-                    }
-
-                    TextField {
-                        id: b
-                        height: aLabel.height
-                        text: "3"
-                        validator: IntValidator {}
-                        // Show a numpad only, instead of a full keyboard
-                        inputMethodHints: Qt.ImhDigitsOnly
-                    }
+                    text: "3"
+                    validator: IntValidator {}
+                    // Show a numpad only, instead of a full keyboard
+                    inputMethodHints: Qt.ImhDigitsOnly
                 }
             }
             Label {
