@@ -14,7 +14,7 @@ Page {
     property alias _aText: a.text
     property alias _bText: b.text
     property alias _sumText: sumLabel.text
-    property alias _substrText: substrLabel.text
+    property alias _subtrText: subtrLabel.text
     property alias _subtractMenuAction: subtractMenuAction
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
@@ -29,7 +29,7 @@ Page {
                 text: "Subtract!"
                 onClicked: {
                     console.log("subtractMenuAction clicked")
-                    substrLabel.text = "A-B = " + (parseInt(a.text) - parseInt(b.text))
+                    subtrLabel.text = "A-B = " + (parseInt(a.text) - parseInt(b.text))
                 }
 
             }
@@ -116,7 +116,7 @@ Page {
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             }
             Label {
-                id: substrLabel
+                id: subtrLabel
                 text: "A-B = ?"
             }
         }
