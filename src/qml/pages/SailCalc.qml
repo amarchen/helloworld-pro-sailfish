@@ -54,8 +54,15 @@ Page {
 
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                textFormat: Text.RichText
 
-                text: "Demo calculator. <a href='https://github.com/amarchen/helloworld-pro-sailfish'>Visit GitHub</a> for details"
+                text: "<style>
+                    a {
+                        color: " +Theme.highlightColor +";\
+                        }
+                       </style>\
+                    Demo calculator.\
+                    <a href='https://github.com/amarchen/helloworld-pro-sailfish'>Visit GitHub</a> for details"
 
                 onLinkActivated: {
                     Qt.openUrlExternally(link)
