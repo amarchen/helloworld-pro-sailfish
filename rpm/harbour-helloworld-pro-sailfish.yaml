@@ -20,11 +20,12 @@ Requires:
 - libsailfishapp
 Files:
 # Do not include whole %{_datadir}/applications as that would include tests too
+- '%defattr(0644,root,root,0755)'
 - '%{_datadir}/icons/hicolor/86x86/apps/%{name}.png'
 - '%{_datadir}/applications/%{name}.desktop'
 - '%{_datadir}/%{name}/qml'
 
-- '%{_bindir}/%{name}'
+- '%attr(0755,-,-) %{_bindir}/%{name}'
 PkgBR: []
 
 SubPackages:
