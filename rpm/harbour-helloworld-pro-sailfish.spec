@@ -13,8 +13,8 @@ Name:       harbour-helloworld-pro-sailfish
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Helloworld Pro for Sailfish
-Version:    0.4
-Release:    4
+Version:    0.5
+Release:    5
 Group:      Qt/Qt
 License:    Public domain except for the icon
 Source0:    %{name}-%{version}.tar.bz2
