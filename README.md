@@ -8,9 +8,12 @@ Quick-start your own app
 
 1. git clone or download sources.
 
-2. To rename the application, run `./rename-to-my-project.sh harbour-mycoolapp`
+2. To rename the application, goto command line and run `python rename-to-my-project.py harbour-mycoolapp`
 
- The rename script certainly won't work for Windows without cygwin or similar. If you create a similar batch file for windows or create a platform-independ script (e.g. in Python), please, submit one via pull request
+ The rename script needs Python to be installed to your machine. Python version >= 2.5 should work. To check all options on rename script run `python rename-to-my-project.py --help`.
+ 
+ By default rename script ignores the rename script itself and `.git` directory, but you can affect ignored files and directories with `ignoredFiles` and `ignoredDirs` arguments. Also you can change you application name multiple times to something different by using `originalName` argument (as originalName is defaulted to harbour-helloworld-pro-sailfish).
+ Example: `python rename-to-my-project.py --originalName harbour-mycoolapp harbour-mycoolapp-withbettername --ignoredDirs .git .setttings myOwnstuffDir --ignoredFiles rename-to-my-project.py myDevNotes.txt app.log`. 
 
 3. Ensure that you have the SailfishOS SDK installed. Choose either the SailfishOS IDE version (more clicking) or the command line version (more typing) of the following build and installation sections.
 
