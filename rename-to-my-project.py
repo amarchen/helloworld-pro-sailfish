@@ -13,7 +13,7 @@ from os import rename
 SCRIPT_NAME = os.path.basename(__file__)
 
 def convert_file_names(files, originalName, newName):
-    print "\n>>>> Convert file names\n"
+    print "\n>>>> Converting file names\n"
     for fname in files:
         if fname.find(originalName) != -1:
             newFullName = fname.replace(originalName, newName, 1)
@@ -25,7 +25,7 @@ def convert_file_names(files, originalName, newName):
     print "====================================================================\n"
 
 def convert_files_content(files, originalText, newText):
-    print "\n>>>> Convert files content\n"
+    print "\n>>>> Converting files content\n"
     for file in files:
         newlines = []
         with open(file, 'r') as f:
@@ -36,7 +36,7 @@ def convert_files_content(files, originalText, newText):
                     found = True
                 newlines.append(line.replace(originalText, newText))
             if not found:
-                print "File " + file + " don't need editing."
+                print "Nothing to convert in file " + file + ", leaving it untouched."
         with open(file, 'w') as f:
             for line in newlines:
                 f.write(line)
@@ -62,7 +62,7 @@ def get_files(path,
             if not ignored:
                 filename = os.path.join(prefix, name)
                 if ignore_binary_files and is_binary(filename):
-                    print filename + " is BINARY file and ignored by default!"
+                    print filename + " is BINARY file and ignored!"
                 else:
                     yield filename
 
