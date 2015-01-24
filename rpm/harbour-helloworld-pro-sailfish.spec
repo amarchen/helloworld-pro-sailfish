@@ -84,5 +84,6 @@ desktop-file-install --delete-original       \
 %{_bindir}/tst-harbour-helloworld-pro-sailfish
 %{_datadir}/tst-harbour-helloworld-pro-sailfish/*.qml
 %{_datadir}/tst-harbour-helloworld-pro-sailfish/*.sh
+%attr(0755,-,-) %{_datadir}/tst-harbour-helloworld-pro-sailfish/*.sh
 # >> files test
 # << files test
