@@ -1,7 +1,7 @@
 Name: harbour-helloworld-pro-sailfish
 Summary: Helloworld Pro for Sailfish
-Version: 0.5
-Release: 5
+Version: 0.6
+Release: 6
 Group: Qt/Qt
 License: Public domain except for the icon
 Sources:
@@ -10,6 +10,10 @@ Description: |-
   Missing Helloworld for Sailfish OS. Use this project for a good app start
 Configure: none
 Builder: qtc5
+QMakeOptions:
+- VERSION=%{version}
+- RELEASE=%{release}
+
 PkgConfigBR:
 - Qt5Core
 - Qt5Qml

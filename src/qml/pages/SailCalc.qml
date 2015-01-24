@@ -8,6 +8,11 @@ import Sailfish.Silica 1.0
 Page {
     id: page
 
+    // These are to be filled by whoever instantiates the page
+    // Or can be left clean e.g. for testing scripts who don't care about the version numbers
+    property string version: ""
+    property string buildNum: ""
+
     // Exposing properties for testing. In real app you might like to hide it behind a single interface
     // e.g. via "property variant internals" and then put a QtObject with the individual properties to it
     // @TODO: implement exposing via single internals property
@@ -61,7 +66,7 @@ Page {
                         color: " +Theme.highlightColor +";\
                         }
                        </style>\
-                    Demo calculator.\
+                    Demo calculator. Version " + version + " build " + buildNum +".\
                     <a href='https://github.com/amarchen/helloworld-pro-sailfish'>Visit GitHub</a> for details"
 
                 onLinkActivated: {

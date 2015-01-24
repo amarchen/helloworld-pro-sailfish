@@ -8,6 +8,9 @@ CONFIG += sailfishapp
 
 SOURCES += main.cpp
 
+DEFINES += APP_VERSION=\\\"$$VERSION\\\"
+DEFINES += APP_BUILDNUM=\\\"$$RELEASE\\\"
+
 OTHER_FILES = \
 # You DO NOT want .yaml be listed here as Qt Creator's editor is completely not ready for multi package .yaml's
 #
