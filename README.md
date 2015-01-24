@@ -1,7 +1,7 @@
 Sailfish app with QML test
 =========
 
-A minimal project for demonstrating the project structure with a simple app and a couple of QML tests that verify stuff in both UI level and under UI level. In the bright future it might be the ideal super-polished good app template with all the minimal stuff you need in real app, but nothing else.
+A minimal project for demonstrating the project structure with a simple app and a couple of QML tests that verify stuff in both UI level and under UI level. In the bright future it might be the ideal super-polished good app template with all the minimal stuff you need in real app, but nothing else. Works with Sailfish OS update 10 (from Dec 2014)
 
 Quick-start your own app
 ------------
@@ -21,7 +21,7 @@ Build and installation (SailfishOS IDE version)
 ------------
 
 ### Running app
-1. Import to SailfishOS IDE (aka Qt Creator): File -> Open File or Project... -> helloworld-pro-sailfish/harbour-helloworld-pro-sailfish.pro
+1. Import to SailfishOS IDE (aka Qt Creator): File -> Open File or Project... -> helloworld-pro-sailfish/harbour-helloworld-pro-sailfish.pro Qt Creator might tell you "Project ERROR: Unknown module(s) in QT: qmltest" if you don't have qmltest installed yet - that's okay, this module will be fetched automatically during the first build.
 
 2. Choose platform kits: Uncheck Desktop, tick MerSDK-SailfishOS-i486-x86 (for the emulator) and/or arm (for the real phone) options.
 
@@ -34,7 +34,7 @@ Build and installation (SailfishOS IDE version)
 6. You should see the silly primitive calculator app installed and running in the emulator.
 
 ### Running tests
-* Option 1: In the emulator console, just run `/usr/share/tst-harbour-helloworld-pro-sailfish/runTestsOnDevice.sh`
+* Option 1: In the emulator console, just run `/usr/share/tst-harbour-helloworld-pro-sailfish/runTestsOnDevice.sh` Here are instructions on connecting to the emulator's console - https://sailfishos.org/develop-faq.html
 
 * Option 2: Inside SailfishOS IDE
 
