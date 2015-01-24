@@ -1,7 +1,7 @@
 Sailfish app with QML test
 =========
 
-A minimal project for demonstrating the project structure with a simple app and a couple of QML tests that verify stuff in both UI level and under UI level. In the bright future it might be the ideal super-polished good app template with all the minimal stuff you need in real app, but nothing else. Works with Sailfish OS update 10 (from Dec 2014)
+A minimal project for demonstrating the project structure with a simple app and a couple of QML tests that verify stuff in both UI level and under UI level. In the bright future it might be the ideal super-polished good app template with all the minimal stuff you need in real app, but nothing else. Works with Sailfish OS update 10 (from Dec 2014). As a nice bonus shows you how to specify version and build number in one place only (in .yaml) and propagate it to .spec , .pro , .cpp and .qml.
 
 Quick-start your own app
 ------------
